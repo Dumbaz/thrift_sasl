@@ -19,7 +19,6 @@ from setuptools import setup
 
 
 PY3 = sys.version_info[0] == 3
-WINDOWS = sys.platform == 'win32' or sys.platform == 'cygwin'
 
 description = ("Thrift SASL Python module that implements SASL transports for "
                "Thrift (`TSaslClientTransport`).")
@@ -33,13 +32,11 @@ setup(
     author_email='laserson@cloudera.com',
     maintainer='Wes McKinney',
     maintainer_email='wes@cloudera.com',
-    url='https://github.com/cloudera/thrift_sasl',
+    url='https://github.com/dumbaz/thrift_sasl',
     install_requires=[
         # Python 3 support was added to thrift in version 0.10.0.
         'thrift>=0.10.0' if PY3 else 'thrift',
-        # Installing sasl on Windows is rather painful, so use the pure python
-        # implementation on Windows
-        'pure-sasl>=0.3.0' if WINDOWS else 'sasl>=0.2.1',
+        'pure-sasl>=0.3.0',
     ],
     packages=['thrift_sasl'],
     keywords='thrift sasl transport',
